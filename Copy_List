@@ -1,0 +1,77 @@
+
+
+public class LinkedList {
+	
+	static Node head; //head of linked list
+	
+	class Node{
+		int data;
+		Node next;
+		Node(int d){
+			data = d;
+			next = null;
+		}
+	}
+	
+	public void push(int newData) {
+		Node newNode = new Node(newData);
+		newNode.next = head;
+		head = newNode;
+	}
+	
+	public void printList(Node head) {
+		
+		Node temp = head;
+		
+		while(temp != null) {
+			System.out.println(temp.data + "->");
+			temp = temp.next;
+		}
+		System.out.println("NULL");
+	}
+  
+  public Node cloneList(Node head){
+  
+    HashMap<Node,Node> map = new HashMap<>();
+
+    Node dummy = new Node(100001);
+    Node temp = dummy;
+    Node curr = head;
+
+    while(curr != null){
+      Node newNode = new Node(curr.val);
+      temp.next = newNode;
+      map.put(curr,newNode);
+      curr = curr.next;
+      temp = temp.next;
+    }
+    
+    curr = head;
+    temp = dummy.next;
+    
+    while(curr != null){
+      if(curr.next != null){
+        temp.next = map.get(curr.next);
+      }
+      temp = temp.next;
+      curr = curr.next;
+    }
+    return dummy.next;
+  }
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("data");
+		LinkedList list = new LinkedList();
+		
+		for(int i=5;i>0;--i) {
+			list.push(i);
+		}
+		list.printList(head);
+		
+    list.cloneList(head);
+	}
+
+}
