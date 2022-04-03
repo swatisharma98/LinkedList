@@ -1,0 +1,74 @@
+
+
+public class LinkedList {
+	
+	static Node head; //head of linked list
+	
+	class Node{
+		int data;
+		Node next;
+		Node(int d){
+			data = d;
+			next = null;
+		}
+	}
+	
+	public void push(int newData) {
+		Node newNode = new Node(newData);
+		newNode.next = head;
+		head = newNode;
+	}
+	
+	public void printList(Node head) {
+		
+		Node temp = head;
+		
+		while(temp != null) {
+			System.out.println(temp.data + "->");
+			temp = temp.next;
+		}
+		System.out.println("NULL");
+	}
+  
+  public Node swapNodes(Node head, int k ){
+  
+    Node fast = head, slow = head;
+    
+    Node n1 = head;
+    
+    for(int i=1;i<k;i++){
+    fast = fast.next;
+    n1 = fast;
+    }
+    
+    while(fast.next != null){
+    slow = slow.next;
+    fast = fast.next;
+    }
+    
+    int val = n1.data;
+    n1.data = slow.data;
+    slow.data = val;
+    
+    return head;
+  
+  
+  }
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("data");
+		LinkedList list = new LinkedList();
+		
+		for(int i=5;i>0;--i) {
+			list.push(i);
+		}
+		list.printList(head);
+    list.swapNodes(head,2);
+    list.printList(head);
+		
+	}
+
+}
