@@ -30,35 +30,35 @@ public class LinkedList {
 		System.out.println("NULL");
 	}
   
-  public Node cloneList(Node head){
-  
-    HashMap<Node,Node> map = new HashMap<>();
+	  public Node cloneList(Node head){
 
-    Node dummy = new Node(100001);
-    Node temp = dummy;
-    Node curr = head;
+	    HashMap<Node,Node> map = new HashMap<>();
 
-    while(curr != null){
-      Node newNode = new Node(curr.val);
-      temp.next = newNode;
-      map.put(curr,newNode);
-      curr = curr.next;
-      temp = temp.next;
-    }
-    
-    curr = head;
-    temp = dummy.next;
-    
-    while(curr != null){
-      if(curr.next != null){
-        temp.next = map.get(curr.next);
-      }
-      temp = temp.next;
-      curr = curr.next;
-    }
-    return dummy.next;
-  }
-	
+	    Node dummy = new Node(100001);
+	    Node temp = dummy;
+	    Node curr = head;
+
+	    while(curr != null){
+	      Node newNode = new Node(curr.val);
+	      temp.next = newNode;
+	      map.put(curr,newNode);
+	      curr = curr.next;
+	      temp = temp.next;
+	    }
+
+	    curr = head;
+	    temp = dummy.next;
+
+	    while(curr != null){
+	      if(curr.next != null){
+		temp.next = map.get(curr.next);
+	      }
+	      temp = temp.next;
+	      curr = curr.next;
+	    }
+	    return dummy.next;
+	  }
+
 	
 
 	public static void main(String[] args) {
@@ -71,7 +71,7 @@ public class LinkedList {
 		}
 		list.printList(head);
 		
-    list.cloneList(head);
+    		list.cloneList(head);
 	}
 
 }
