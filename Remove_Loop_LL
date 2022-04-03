@@ -28,7 +28,7 @@ public class LinkedList {
 		System.out.println("NULL");
 	}
   
-	  public Node printMiddle(Node head){
+	  public Node removeLoop(Node head){
 	    Node slow = head;
 	    Node fast = head;
 
