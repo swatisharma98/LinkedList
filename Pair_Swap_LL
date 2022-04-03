@@ -1,0 +1,61 @@
+
+
+public class LinkedList {
+	
+	static Node head; //head of linked list
+	
+	class Node{
+		int data;
+		Node next;
+		Node(int d){
+			data = d;
+			next = null;
+		}
+	}
+	
+	public void push(int newData) {
+		Node newNode = new Node(newData);
+		newNode.next = head;
+		head = newNode;
+	}
+	
+	public void printList(Node head) {
+		
+		Node temp = head;
+		
+		while(temp != null) {
+			System.out.println(temp.data + "->");
+			temp = temp.next;
+		}
+		System.out.println("NULL");
+	}
+  
+  public void pairSwap(Node head){
+  
+    Node temp = head;
+    
+    while(temp != null && temp.next != null){
+    int k = temp.data;
+    temp.data = temp.next.data;
+    temp.next.data = k;
+    temp = temp.next.next;
+    }
+  }
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("data");
+		LinkedList list = new LinkedList();
+		
+		for(int i=5;i>0;--i) {
+			list.push(i);
+		}
+    list.printList(head);
+    list.pairSwap(head);
+		list.printList(head);
+		
+	}
+
+}
