@@ -1,0 +1,75 @@
+public class LinkedList {
+	
+	static Node head; //head of linked list
+	
+	class Node{
+		int data;
+		Node next;
+		Node(int d){
+			data = d;
+			next = null;
+		}
+	}
+	
+	public void push(int newData) {
+		Node newNode = new Node(newData);
+		newNode.next = head;
+		head = newNode;
+	}
+	
+	public void printList(Node head) {
+		
+		Node temp = head;
+		
+		while(temp != null) {
+			System.out.println(temp.data + "->");
+			temp = temp.next;
+		}
+		System.out.println("NULL");
+	}
+  
+  public Node mergeList(Node l1,Node l2){
+  Node head = new Node(0);
+  Node temp = head;
+  
+  while(l1 != null && l2 != null){
+    if(l1.val < l2.val){
+      temp.next = l1;
+      l1 = l1.next;
+      temp = temp.next;
+    }
+    else{
+      temp.next = l2;
+      l2 = l2.next;
+      temp=temp.next;
+    }
+  }
+  if(l1 == null){
+  temp.next = l2;
+  }
+  if(l2 == null){
+  temp.next = l1;
+  }
+  return head.next;
+  }
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("data");
+		LinkedList list1 = new LinkedList();
+    LinkedList list2 = new LinkedList();
+		
+		for(int i=5;i>0;--i) {
+			list1.push(i);
+		}
+    for(int i=5=0;i<3;i++) {
+			list2.push(i);
+		}
+	
+   list1 = sortedMerge(list1,list2);
+   
+	}
+
+}
