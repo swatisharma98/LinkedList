@@ -28,22 +28,22 @@ public class LinkedList {
 		System.out.println("NULL");
 	}
   
-  public boolean detectCycle(Node head){
-  
-  Node temp = head;
-  HashSet<Node> set = new HashSet<>();
-  
-  while(temp != null){
-  if(set.contains(temp)){
-  return true;
-  }
-  set.add(temp);
-  temp = temp.next;
-  }
-  return false;
-  }
-	
-	
+	  public boolean detectCycle(Node head){
+
+		  Node temp = head;
+		  HashSet<Node> set = new HashSet<>();
+
+		  while(temp != null){
+			  if(set.contains(temp)){
+			  return true;
+			  }
+			  set.add(temp);
+			  temp = temp.next;
+	          }
+		  return false;
+	  }
+
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -54,8 +54,8 @@ public class LinkedList {
 			list.push(i);
 		}
 		list.printList(head);
-    boolean value = list.detectCycle(head);
-    System.out.println(value);
+		boolean value = list.detectCycle(head);
+		System.out.println(value);
 		
 	}
 
